@@ -18,5 +18,11 @@
 
 'endif
 
-exit
+'exit
 
+while a
+
+'c
+
+exit
+wend
