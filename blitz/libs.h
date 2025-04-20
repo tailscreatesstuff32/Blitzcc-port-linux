@@ -9,14 +9,18 @@
 using namespace std;
 
 #include "../linker/linker.h"
-#include "../compiler/environ.h"
-#include "../compiler/parser.h"
+#include "../config/config.h"
+
+#include <dlfcn.h>
 
 extern int bcc_ver;
 extern int lnk_ver;
-extern int run_ver;
-extern int dbg_ver;
 
-extern Environ *runtimeEnviron;
+//openLibs
+extern Linker *linkerLib;
+
+const char *openLibs();
+
+void closeLibs();
 
 #endif
