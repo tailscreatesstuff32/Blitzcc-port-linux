@@ -9,6 +9,8 @@
   #pragma GCC diagnostic ignored "-Wunknown-pragmas"  // Ignore unknown pragmas in GCC
 #endif
 
+#include "../config/config.h"
+
 #include <string>
 #include <iostream>
 
@@ -35,6 +37,17 @@ private:
 	T *t;
 };
 
-
-
+//Speed-up for SLOW sstream
+class qstreambuf : public std::streambuf{
+public:
+        qstreambuf();
+        ~qstreambuf();
+        int size();             //bytes unread
+        char *data();   //start of bytes unread
+private:
+        char *buf;
+        int_type underflow();
+        int_type overflow( int_type c );
+};
+bool copyFile(const char *src, const char *dst);
 #endif
